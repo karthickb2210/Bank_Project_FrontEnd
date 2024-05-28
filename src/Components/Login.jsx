@@ -5,7 +5,7 @@ import axios from 'axios';
 function Login() {
   const navigate = useNavigate();
   const[cred,setCred] = useState({
-    mail : "",
+    username : "",
     password : ""
   }); 
   const handleChange = (e)=>{
@@ -20,7 +20,9 @@ function Login() {
     console.log(cred)
     const res  = await axios.post("http://localhost:8080/validate",cred);
     console.log(res)
-    if(res.data.data){
+    if(res.data){
+      localStorage.setItem("username",cred.username)
+      localStorage.setItem("password",cred.password)
         navigate("/dashboard")
     }
   }
@@ -33,7 +35,7 @@ function Login() {
 <form className="flex flex-col gap-3">
     <div className="block relative"> 
     <label htmlFor="email" className="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">Email</label>
-    <input onChange={handleChange} name='mail' value={cred.mail} type="text" id="email" className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0" />
+    <input onChange={handleChange} name='username' value={cred.username} type="text" id="email" className="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0" />
     
     </div>
     <div className="block relative"> 

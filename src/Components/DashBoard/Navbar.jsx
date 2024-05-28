@@ -3,11 +3,12 @@ import { useEffect } from 'react';
 import axios from 'axios';
 const Navbar = () => {
     const [name ,setName] = useState("");
-   
-    const fet =async() =>{ await axios.get("http://localhost:8080/greet",{
+    const password = localStorage.getItem("password");
+    const username = localStorage.getItem("username");
+    const fet =async() =>{ await axios.get("http://localhost:8080/user",{
       auth :{
-        username:"kar",
-        password :"123"
+        username : username,
+        password : password
       }
     }).then((data)=>{
         console.log(data.data);
