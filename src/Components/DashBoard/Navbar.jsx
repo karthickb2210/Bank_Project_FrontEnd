@@ -14,16 +14,24 @@ const Navbar = () => {
     navigate("/")
   } 
 
-    const fet =async() =>{ await axios.get("http://localhost:8080/user",{
+    const fet =async() =>{
+      //console.log(username)
+     // console.log(password)
+      await axios.get("http://localhost:8080/user",{
       auth :{
         username : username,
         password : password
       }
     }).then((data)=>{
-        console.log(data.data);
+      
+        console.log(data);
         setName(data.data);
+    }).catch((e)=>{
+      console.log(e)
     })}
     useEffect(()=>{
+      console.log(localStorage.getItem("username"))
+      console.log(localStorage.getItem("password"))
         fet();
     })
   return (

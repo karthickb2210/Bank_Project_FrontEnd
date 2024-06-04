@@ -18,13 +18,18 @@ function Login() {
   const handleLogin =async (e)=>{
     e.preventDefault();
     console.log(cred)
-    const res  = await axios.post("http://localhost:8080/validate",cred);
-    console.log(res)
-    if(res.data){
-      localStorage.setItem("username",cred.username)
-      localStorage.setItem("password",cred.password)
-        navigate("/dashboard")
-    }
+    await axios.post("http://localhost:8080/validate",cred).then((res)=>{
+      console.log(res)
+      if(res.data){
+        console.log(cred.username + " "+ cred.password)
+        localStorage.setItem("username",cred.username)
+        localStorage.setItem("password",cred.password)
+          navigate("/dashboard")
+      }
+    }).catch((e)=>{
+      console.log(e);
+    })
+    
   }
    
   return (
