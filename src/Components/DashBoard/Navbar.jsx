@@ -23,15 +23,13 @@ const Navbar = () => {
         password : password
       }
     }).then((data)=>{
-      
-        console.log(data);
-        setName(data.data);
+        setName(data.data.name);
     }).catch((e)=>{
       console.log(e)
     })}
     useEffect(()=>{
-      console.log(localStorage.getItem("username"))
-      console.log(localStorage.getItem("password"))
+      // console.log(localStorage.getItem("username"))
+      // console.log(localStorage.getItem("password"))
         fet();
     })
   return (
