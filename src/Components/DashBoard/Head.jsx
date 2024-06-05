@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import Dashboard from './DashBoard';
 import Buttons from '../button/Buttons';
 import axios from 'axios';
+import Loader from '../Loader/Loader';
 
 const Head = () => {
   const [loader,setloader] = useState(true);
@@ -32,17 +33,19 @@ const Head = () => {
   return (<>
      
       
-        <Navbar name={name} />
         
-      {loader ? <></> :
+        
+      {loader ? <Loader /> :<>
+      <Navbar name={name} />
       <div className="flex ">
+      
       <div><Sidebar/></div>
       <div><Dashboard bal={balance}/>
         <Buttons /></div>
 
         
       </div>
-      }
+</>      }
     </>);
 };
 

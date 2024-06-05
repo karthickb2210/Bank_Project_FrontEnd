@@ -61,7 +61,6 @@ function Buttons() {
       <input
         id="serialCardNumber"
         className="input-field"
-       // type="number"
        value={transcation.toAccNumber}
         name="toAccNumber"
         placeholder="0000 0000 0000 0000"
@@ -74,7 +73,6 @@ function Buttons() {
         id="Amount"
         className="input-field"
         value={transcation.amount}
-        //type="number"
         name="amount"
         placeholder="$ 000"
         onChange={handleChange}

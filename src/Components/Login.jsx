@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import Loader from './Loader/Loader';
 
 function Login() {
+  const [ loader,setLoader] = useState();
   const navigate = useNavigate();
   const[cred,setCred] = useState({
     username : "",
@@ -16,6 +18,7 @@ function Login() {
     })
   }
   const handleLogin =async (e)=>{
+    setLoader(true)
     e.preventDefault();
     console.log(cred)
     await axios.post("http://localhost:8080/validate",cred).then((res)=>{
@@ -29,10 +32,11 @@ function Login() {
     }).catch((e)=>{
       console.log(e);
     })
-    
+    setLoader(false)
   }
    
-  return (
+  return (<>
+    { loader ?  <Loader/> : 
     <div className=' flex justify-center items-center'>
       <div className="max-w-md relative flex flex-col p-4 rounded-md text-black bg-white">
     <div className="text-2xl font-bold mb-2 text-[#1e0e4b] text-center">Welcome back to <span class="text-[#7747ff]">App</span></div>
@@ -57,7 +61,8 @@ function Login() {
 <div className="text-sm text-center mt-[1.6rem]">Don’t have an account yet? <Link to={`/register`}><a className="text-sm text-[#7747ff]" href="#">Sign up for free!</a></Link></div>
 </div>
     </div>
-  )
+    
+    }</> )
 }
 
 export default Login
