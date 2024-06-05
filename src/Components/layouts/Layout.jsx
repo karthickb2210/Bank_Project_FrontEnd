@@ -2,7 +2,6 @@ import React from 'react'
 import { Route,Routes } from 'react-router-dom'
 import Login from '../Login'
 import Main from '../Landingpage/MainPage'
-import Register from '../Register'
 import Head from '../DashBoard/Head'
 import RegisterForm from '../NewaccountForm.jsx/RegisterForm'
 function Layout() {
