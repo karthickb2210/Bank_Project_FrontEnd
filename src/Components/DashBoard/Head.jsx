@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Dashboard from './DashBoard';
-import axios from 'axios';
+import Buttons from '../button/Buttons';
+
 const Head = () => {
     
     
@@ -11,7 +12,9 @@ const Head = () => {
       <Sidebar />
       <div className="flex-1">
         <Navbar />
-        <Dashboard name={name} />
+        <Dashboard />
+        <Buttons />
+        
       </div>
     </div>
   );

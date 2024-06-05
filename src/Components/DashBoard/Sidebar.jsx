@@ -1,4 +1,5 @@
 import React from 'react';
+import Buttons from '../button/Buttons';
 
 const Sidebar = () => {
   return (
@@ -8,6 +9,7 @@ const Sidebar = () => {
         <li className="mb-4"><a href="#" className="hover:text-gray-300">Accounts</a></li>
         <li className="mb-4"><a href="#" className="hover:text-gray-300">Transactions</a></li>
         <li className="mb-4"><a href="#" className="hover:text-gray-300">Settings</a></li>
+        
       </ul>
     </div>
   );
