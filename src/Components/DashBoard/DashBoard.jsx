@@ -1,9 +1,14 @@
 import React from 'react';
-
-const Dashboard = ({bal}) => {
+import Buttons from '../button/Buttons';
+import Transactions from './Transactions';
+const Dashboard = ({bal,trans}) => {
   
-  return (
-    <div className="p-4">
+  return (  
+    <>
+    { trans ? <Transactions /> :
+
+    <>
+      <div className="p-4">
         
       <div className="grid grid-cols-3 gap-4">
         <div className="bg-white p-4 rounded shadow">
@@ -11,7 +16,7 @@ const Dashboard = ({bal}) => {
           <p className="text-gray-700">$ {bal}</p>
         </div>
         <div className="bg-white p-4 rounded shadow">
-          <h3 className="text-xl font-bold">Recent Transactions</h3>
+          <h3 className="text-xl font-bold">Last Transaction</h3>
           <ul>
             <li className="text-gray-700">Deposit - {bal}</li>
             <li className="text-gray-700">Withdrawal - $200</li>
@@ -24,7 +29,14 @@ const Dashboard = ({bal}) => {
           </ul>
         </div>
       </div>
+      
     </div>
+    <Buttons />
+    </>
+    
+    }
+    </>
+    
   );
 };
 
